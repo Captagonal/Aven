@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dhlordx3fe1xy"]
+
+[ext_resource type="Script" uid="uid://c1476m5ljb8do" path="res://Scripts/Player.cs" id="1_4flbx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_i3pqv"]
+radius = 0.1
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqtel"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sweqy"]
+material = SubResource("StandardMaterial3D_hqtel")
+radius = 0.07
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hs0m"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1jxqw"]
+material = SubResource("StandardMaterial3D_2hs0m")
+radius = 0.07
+height = 0.15
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh265"]
+albedo_color = Color(0.59, 0.088499986, 0.088499986, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
+material = SubResource("StandardMaterial3D_sh265")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v0iea"]
+radius = 0.019365482
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0iea"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_v0iea"]
+material = SubResource("StandardMaterial3D_v0iea")
+text = "+"
+font_size = 10
+depth = 0.01
+
+[node name="Player" type="CharacterBody3D" unique_id=91225578]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=746822753]
+shape = SubResource("CapsuleShape3D_onrkg")
+
+[node name="Head" type="Node3D" parent="." unique_id=832801443]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Head" unique_id=247833333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012013406, 0.41020808, -0.43272516)
+layers = 512
+mesh = SubResource("SphereMesh_i3pqv")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Head" unique_id=974315923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19027928, 0.5440688, -0.4190123)
+layers = 512
+mesh = SubResource("SphereMesh_sweqy")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Head" unique_id=202352599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2026321, 0.5440688, -0.41456032)
+layers = 512
+mesh = SubResource("SphereMesh_1jxqw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=597234303]
+mesh = SubResource("CapsuleMesh_4flbx")
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1906963479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5603571, -0.15856212)
+cull_mask = 1048063
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1657288853]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.02752459, -0.36517805)
+collision_mask = 3
+
+[node name="Holding" type="Node3D" parent="Head/Camera3D" unique_id=6586094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.022548556, -1.944247)
+
+[node name="joint" type="Generic6DOFJoint3D" parent="Head/Camera3D/Holding" unique_id=2034569109]
+node_a = NodePath("../StaticBody3D")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+linear_spring_x/enabled = true
+linear_spring_x/stiffness = 100.0
+linear_spring_x/damping = 6.0
+linear_spring_y/enabled = true
+linear_spring_y/stiffness = 150.0
+linear_spring_y/damping = 6.0
+linear_spring_z/enabled = true
+linear_spring_z/stiffness = 100.0
+linear_spring_z/damping = 6.0
+angular_limit_x/enabled = false
+angular_spring_x/stiffness = 25.0
+angular_spring_x/damping = 5.0
+angular_spring_y/enabled = true
+angular_spring_y/stiffness = 50.0
+angular_spring_y/damping = 5.0
+angular_spring_z/enabled = true
+angular_spring_z/stiffness = 90.0
+angular_spring_z/damping = 5.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Head/Camera3D/Holding" unique_id=995225136]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera3D/Holding/StaticBody3D" unique_id=2145173627]
+shape = SubResource("SphereShape3D_v0iea")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/Holding" unique_id=1756879181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.9199729)
+mesh = SubResource("TextMesh_v0iea")

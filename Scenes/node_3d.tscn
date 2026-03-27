@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bavjghxoeoq3w"]
+
+[ext_resource type="PackedScene" uid="uid://dhlordx3fe1xy" path="res://Scenes/Player/player.tscn" id="1_bi5fs"]
+[ext_resource type="PackedScene" uid="uid://du4hqciujoeqr" path="res://Assets/Floor.glb" id="2_okq71"]
+[ext_resource type="PackedScene" uid="uid://phpt3cnjtam5" path="res://Scenes/Physics Objects/Ball.tscn" id="3_okq71"]
+[ext_resource type="PackedScene" uid="uid://cqnk5ffkyyd2j" path="res://Scenes/Physics Objects/Box.tscn" id="4_wosnj"]
+[ext_resource type="PackedScene" uid="uid://bxd2t4ywkxlxu" path="res://Scenes/Physics Objects/Trampoline.tscn" id="6_ifh66"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_noarx")
+
+[sub_resource type="Environment" id="Environment_r3fl7"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=58197472]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1589850674]
+environment = SubResource("Environment_r3fl7")
+
+[node name="Player" parent="." unique_id=91225578 instance=ExtResource("1_bi5fs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4900359, 2.095827, 0.6133976)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=828841555]
+transform = Transform3D(-0.19769202, 0.254244, -0.94671947, -0.44885275, 0.8351094, 0.31799936, 0.8714639, 0.48780358, -0.0509764, -13.673481, 5.702409, 0)
+
+[node name="Ball" parent="." unique_id=1495388000 instance=ExtResource("3_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2)
+
+[node name="Floor" parent="." unique_id=806685981 instance=ExtResource("2_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="Floor" parent="Floor" unique_id=803388053 instance=ExtResource("2_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41)
+
+[node name="Floor2" parent="Floor" unique_id=272438321 instance=ExtResource("2_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82)
+
+[node name="Floor" parent="Floor/Floor2" unique_id=516056265 instance=ExtResource("2_okq71")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41)
+
+[node name="Box" parent="." unique_id=1666721492 instance=ExtResource("4_wosnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 2.1, 0.5)
+
+[node name="Box2" parent="." unique_id=772386513 instance=ExtResource("4_wosnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 4)
+
+[node name="Box3" parent="." unique_id=2091934498 instance=ExtResource("4_wosnj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6)
+
+[node name="Trampoline" parent="." unique_id=410271817 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, -1, 1.5999999, -2)
+constant_linear_velocity = Vector3(5, 5, 5)
+
+[node name="Trampoline3" parent="." unique_id=903456787 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
+transform = Transform3D(3.7, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.2, -9)
+
+[node name="Trampoline2" parent="." unique_id=1427212074 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.6, -2)
+
+[node name="Trampoline4" parent="." unique_id=521314201 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1.2, -9)
+
+[node name="Trampoline5" parent="." unique_id=457947343 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.2, -9)

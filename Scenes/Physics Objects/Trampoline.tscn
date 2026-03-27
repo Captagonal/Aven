@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bxd2t4ywkxlxu"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lidqt"]
+bounce = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a4xa"]
+size = Vector3(2, 0.5, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q8lr"]
+albedo_color = Color(0.06600001, 0.55, 0.12246674, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l6fu6"]
+material = SubResource("StandardMaterial3D_2q8lr")
+size = Vector3(2, 0.5, 2)
+
+[node name="Trampoline" type="StaticBody3D" unique_id=410271817]
+physics_material_override = SubResource("PhysicsMaterial_lidqt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1268461101]
+shape = SubResource("BoxShape3D_7a4xa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1608081451]
+mesh = SubResource("BoxMesh_l6fu6")

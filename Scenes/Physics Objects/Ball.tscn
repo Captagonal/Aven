@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://phpt3cnjtam5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rmwm4"]
+bounce = 0.55
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rmwm4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7nh6h"]
+
+[node name="Ball" type="RigidBody3D" unique_id=1495388000 groups=["Grabable"]]
+physics_material_override = SubResource("PhysicsMaterial_rmwm4")
+gravity_scale = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=472014905]
+shape = SubResource("SphereShape3D_rmwm4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=997901358]
+mesh = SubResource("SphereMesh_7nh6h")

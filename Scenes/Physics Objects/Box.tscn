@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cqnk5ffkyyd2j"]
+
+[ext_resource type="PackedScene" uid="uid://phpt3cnjtam5" path="res://Scenes/Physics Objects/Ball.tscn" id="1_8s0t8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8s0t8"]
+bounce = 0.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jm3vu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_speaj"]
+
+[node name="Box" unique_id=1495388000 instance=ExtResource("1_8s0t8")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_8s0t8")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=472014905]
+shape = SubResource("BoxShape3D_jm3vu")
+
+[node name="MeshInstance3D" parent="." index="1" unique_id=997901358]
+mesh = SubResource("BoxMesh_speaj")
