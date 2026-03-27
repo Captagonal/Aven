@@ -4,4 +4,4 @@
 
 [node name="M" unique_id=1967461708 instance=ExtResource("1_glfqf")]
 
-[node name="Mesh" parent="." index="0" unique_id=2123642173 groups=["Grabable"]]
+[node name="Mesh" parent="." index="0" unique_id=563345540 groups=["Grabable"]]

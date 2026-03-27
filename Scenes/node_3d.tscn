@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqnk5ffkyyd2j" path="res://Scenes/Physics Objects/Box.tscn" id="4_wosnj"]
 [ext_resource type="PackedScene" uid="uid://dsy8imlr45nyx" path="res://Scenes/m.tscn" id="6_a8auw"]
 [ext_resource type="PackedScene" uid="uid://bxd2t4ywkxlxu" path="res://Scenes/Physics Objects/Trampoline.tscn" id="6_ifh66"]
+[ext_resource type="PackedScene" uid="uid://d3uw5lckqucot" path="res://Scenes/bloblin.tscn" id="7_ifh66"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -73,3 +74,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.2, -9)
 
 [node name="M2" parent="." unique_id=1967461708 groups=["Grabable"] instance=ExtResource("6_a8auw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0400107, 1.8848104, 10.047836)
+
+[node name="Bloblin" parent="." unique_id=1744837047 instance=ExtResource("7_ifh66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 4)
