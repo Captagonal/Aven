@@ -103,16 +103,11 @@ public partial class Player : CharacterBody3D
 			_camera.Rotation = camRotation;
 		}
 
-		///-----Grabbing Objects-----
-		if (_lookingAt.IsColliding() && pickedUpObject == null)
-		{
+		if (_lookingAt.IsColliding()){
 			Node3D lookingAtNode = _lookingAt.GetCollider() as Node3D;
-			if (lookingAtNode != null)
+			if (pickedUpObject == null && lookingAtNode != null && lookingAtNode.IsInGroup("Grabable") && Input.IsActionJustPressed("grab"))
 			{
-				if (lookingAtNode.IsInGroup("Grabable") && Input.IsActionJustPressed("grab"))
-				{
-
-					Generic6DofJoint3D joint = _camera.GetNode<Node3D>("Holding").GetNode<Generic6DofJoint3D>("joint");
+				Generic6DofJoint3D joint = _camera.GetNode<Node3D>("Holding").GetNode<Generic6DofJoint3D>("joint");
 					lookingAtNode.GlobalPosition = _camera.GetNode<Node3D>("Holding").GlobalPosition;
 					joint.NodeB = lookingAtNode.GetPath();
 
@@ -122,10 +117,16 @@ public partial class Player : CharacterBody3D
 						pickedUpObject = lookingAtNode;
 					};
 					rigidBody.AddCollisionExceptionWith(this);
-
-				}
 			}
+			if (lookingAtNode.IsInGroup("Button") && Input.IsActionJustPressed("interact"))
+			{
+				ButtonConsole console = lookingAtNode.GetParent().GetParent() as ButtonConsole;
+				console.PressButton(lookingAtNode.GetParent().Name);
+			}
+			
 		}
+		///-----Grabbing Objects-----
+		
 
 
 		if (pickedUpObject != null)

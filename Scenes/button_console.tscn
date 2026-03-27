@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ijh63rj5yqer"]
+
+[ext_resource type="PackedScene" uid="uid://ivs0hxens3qi" path="res://Assets/Button Console.glb" id="1_1fbj5"]
+[ext_resource type="Script" uid="uid://l22k6me8kdxh" path="res://Scripts/ButtonConsole.cs" id="2_y4oiu"]
+
+[node name="Button Console" unique_id=755547409 instance=ExtResource("1_1fbj5")]
+script = ExtResource("2_y4oiu")
+
+[node name="StaticBody3D" parent="Console" parent_id_path=PackedInt32Array(1671797063) index="0" unique_id=1320013521 groups=["Button"]]
+
+[node name="Button2" parent="." index="1" unique_id=1917705584 groups=["Button"]]
+
+[node name="StaticBody3D" parent="Button2" index="0" unique_id=1431378528 groups=["Button"]]
+
+[node name="Button1" parent="." index="2" unique_id=65526068 groups=["Button"]]
+
+[node name="StaticBody3D" parent="Button1" index="0" unique_id=807719446 groups=["Button"]]
+
+[node name="Button3" parent="." index="3" unique_id=844573377 groups=["Button"]]
+
+[node name="StaticBody3D" parent="Button3" index="0" unique_id=1943226336 groups=["Button"]]
+
+[node name="Button4" parent="." index="4" unique_id=439408162 groups=["Button"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+
+[node name="StaticBody3D" parent="Button4" index="0" unique_id=1409602850 groups=["Button"]]
