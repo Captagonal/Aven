@@ -175,12 +175,10 @@ public partial class Player : CharacterBody3D
 			camRotation.X = Mathf.Clamp(camRotation.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
 
 			_camera.Rotation = camRotation;
-
 		}
 		else if (@event is InputEventKey keyEvent && keyEvent.IsPressed() && keyEvent.Keycode == Key.Escape)
 		{
 			Input.MouseMode = Input.MouseModeEnum.Visible;
 		}
-
 	}
 }

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsy8imlr45nyx"]
+
+[ext_resource type="PackedScene" uid="uid://djicd4dp73bwj" path="res://Assets/M.glb" id="1_glfqf"]
+
+[node name="M" unique_id=1967461708 instance=ExtResource("1_glfqf")]
+
+[node name="Mesh" parent="." index="0" unique_id=2123642173 groups=["Grabable"]]
