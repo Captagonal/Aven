@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://d3uw5lckqucot" path="res://Scenes/bloblin.tscn" id="7_ifh66"]
 [ext_resource type="PackedScene" uid="uid://bf0751euh6mb1" path="res://Assets/Tower2.glb" id="8_aeo3b"]
 [ext_resource type="PackedScene" uid="uid://ijh63rj5yqer" path="res://Scenes/button_console.tscn" id="9_worak"]
+[ext_resource type="Texture2D" uid="uid://dhlha54d1sjt4" path="res://Assets/Textures/rain.svg" id="10_1vwyg"]
+[ext_resource type="Script" uid="uid://bjr5qtlonsyht" path="res://Scripts/Weather.cs" id="10_ahc04"]
+[ext_resource type="Texture2D" uid="uid://4ds3ir1w7x4d" path="res://Assets/Textures/snow.svg" id="11_ahc04"]
+[ext_resource type="Texture2D" uid="uid://k7dj265maw53" path="res://Assets/Textures/clear.svg" id="12_8cye3"]
+[ext_resource type="Texture2D" uid="uid://cgqgp7tfx0wwu" path="res://Assets/Textures/thunder.svg" id="13_062e5"]
+[ext_resource type="PackedScene" uid="uid://frcwqnv506vn" path="res://Scenes/potion.tscn" id="15_8cye3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,6 +28,9 @@ background_mode = 2
 sky = SubResource("Sky_a0tk4")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1vwyg"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Node3D" type="Node3D" unique_id=58197472]
 
@@ -56,7 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 2.1, 0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 4)
 
 [node name="Box3" parent="." unique_id=2091934498 instance=ExtResource("4_wosnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 12)
 
 [node name="Trampoline" parent="." unique_id=410271817 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, -1, 1.5999999, -2)
@@ -75,13 +84,49 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1.2, -9)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.2, -9)
 
 [node name="M2" parent="." unique_id=1967461708 groups=["Grabable"] instance=ExtResource("6_a8auw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0400107, 1.8848104, 10.047836)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0400107, 1.8848104, 13.047836)
 
 [node name="Bloblin" parent="." unique_id=1744837047 instance=ExtResource("7_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 3)
 
 [node name="Tower2" parent="." unique_id=1558360361 instance=ExtResource("8_aeo3b")]
 transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 6, 2, -25)
 
 [node name="Button Console" parent="." unique_id=2109354994 instance=ExtResource("9_worak")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 8)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=657070212]
+scaling_3d_scale = 1.17
+size = Vector2i(48, 48)
+script = ExtResource("10_ahc04")
+
+[node name="Rain" type="TextureRect" parent="SubViewport" unique_id=640041944]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_1vwyg")
+
+[node name="Snow" type="TextureRect" parent="SubViewport" unique_id=80594812]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_ahc04")
+
+[node name="Clear" type="TextureRect" parent="SubViewport" unique_id=1804877290]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("12_8cye3")
+
+[node name="Storm" type="TextureRect" parent="SubViewport" unique_id=91007078]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("13_062e5")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1228475274]
+transform = Transform3D(-4.0717157e-07, 0, 9.315, 0, 9.315, 0, -9.315, 0, -4.0717157e-07, -2, 4.9, 8)
+texture = SubResource("ViewportTexture_1vwyg")
+
+[node name="Potion2" parent="." unique_id=2090038305 instance=ExtResource("15_8cye3")]
+transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 5.053, 2, 12.466274)
