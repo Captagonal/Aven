@@ -1,132 +1,121 @@
 [gd_scene format=3 uid="uid://bavjghxoeoq3w"]
 
 [ext_resource type="PackedScene" uid="uid://dhlordx3fe1xy" path="res://Scenes/Player/player.tscn" id="1_bi5fs"]
-[ext_resource type="PackedScene" uid="uid://du4hqciujoeqr" path="res://Assets/Floor.glb" id="2_okq71"]
-[ext_resource type="PackedScene" uid="uid://phpt3cnjtam5" path="res://Scenes/Physics Objects/Ball.tscn" id="3_okq71"]
-[ext_resource type="PackedScene" uid="uid://cqnk5ffkyyd2j" path="res://Scenes/Physics Objects/Box.tscn" id="4_wosnj"]
-[ext_resource type="PackedScene" uid="uid://dsy8imlr45nyx" path="res://Scenes/m.tscn" id="6_a8auw"]
-[ext_resource type="PackedScene" uid="uid://bxd2t4ywkxlxu" path="res://Scenes/Physics Objects/Trampoline.tscn" id="6_ifh66"]
-[ext_resource type="PackedScene" uid="uid://d3uw5lckqucot" path="res://Scenes/bloblin.tscn" id="7_ifh66"]
-[ext_resource type="PackedScene" uid="uid://bf0751euh6mb1" path="res://Assets/Tower2.glb" id="8_aeo3b"]
 [ext_resource type="PackedScene" uid="uid://ijh63rj5yqer" path="res://Scenes/button_console.tscn" id="9_worak"]
 [ext_resource type="Texture2D" uid="uid://dhlha54d1sjt4" path="res://Assets/Textures/rain.svg" id="10_1vwyg"]
 [ext_resource type="Script" uid="uid://bjr5qtlonsyht" path="res://Scripts/Weather.cs" id="10_ahc04"]
 [ext_resource type="Texture2D" uid="uid://4ds3ir1w7x4d" path="res://Assets/Textures/snow.svg" id="11_ahc04"]
+[ext_resource type="PackedScene" uid="uid://d2y38u8vwwd0m" path="res://Assets/cauldron.blend" id="11_cb6ip"]
+[ext_resource type="PackedScene" uid="uid://clx6p6iqf4tbx" path="res://Scenes/Customer/customer.tscn" id="12_1vwyg"]
 [ext_resource type="Texture2D" uid="uid://k7dj265maw53" path="res://Assets/Textures/clear.svg" id="12_8cye3"]
+[ext_resource type="Script" uid="uid://chwwjj4i8aha4" path="res://Scripts/Timed.cs" id="12_vudi7"]
 [ext_resource type="Texture2D" uid="uid://cgqgp7tfx0wwu" path="res://Assets/Textures/thunder.svg" id="13_062e5"]
 [ext_resource type="PackedScene" uid="uid://frcwqnv506vn" path="res://Scenes/potion.tscn" id="15_8cye3"]
+[ext_resource type="PackedScene" uid="uid://ciheroai2j7ft" path="res://Assets/Ground.blend" id="16_062e5"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cb6ip"]
+sky_top_color = Color(0.2670164, 0.47599232, 0.5975695, 1)
+sky_horizon_color = Color(0.30096245, 0.3073021, 0.3199943, 1)
+sky_curve = 0.007614948
+ground_bottom_color = Color(0.2255351, 0.23214585, 0.13161954, 1)
+ground_horizon_color = Color(0.40991393, 0.46756208, 0.4758237, 1)
+ground_curve = 0.009659338
+sun_angle_max = 26.35
 
-[sub_resource type="Sky" id="Sky_a0tk4"]
-sky_material = SubResource("ProceduralSkyMaterial_noarx")
+[sub_resource type="Sky" id="Sky_vudi7"]
+sky_material = SubResource("ProceduralSkyMaterial_cb6ip")
 
-[sub_resource type="Environment" id="Environment_r3fl7"]
+[sub_resource type="Environment" id="Environment_1vwyg"]
 background_mode = 2
-sky = SubResource("Sky_a0tk4")
+sky = SubResource("Sky_vudi7")
 tonemap_mode = 2
-glow_enabled = true
+ssao_enabled = true
+sdfgi_enabled = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1vwyg"]
-viewport_path = NodePath("SubViewport")
+viewport_path = NodePath("Button Console/SubViewport")
+
+[sub_resource type="Curve3D" id="Curve3D_vudi7"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 44.9, 0, 28.300001, 0, 0, 0, 0, 0, 0, 41.3, 0, 12.700001, 0, 0, 0, 0, 0, 0, 36.9, 0, 6.8, 0, 0, 0, 0, 0, 0, 26.2, 0, 2, 0, 0, 0, 0, 0, 0, 0.6999998, -0.100000024, 0.5000005, 0, 0, 0, 0, 0, 0, 24, 0, -2, 0, 0, 0, 0, 0, 0, 35, 2, 1.0000005, 0, 0, 0, 0, 0, 0, 41, 2, 5.0000005),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [node name="Node3D" type="Node3D" unique_id=58197472]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1589850674]
-environment = SubResource("Environment_r3fl7")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=8348975]
+environment = SubResource("Environment_1vwyg")
 
 [node name="Player" parent="." unique_id=91225578 instance=ExtResource("1_bi5fs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4900359, 2.095827, 0.6133976)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=828841555]
-transform = Transform3D(-0.19769202, 0.254244, -0.94671947, -0.44885275, 0.8351094, 0.31799936, 0.8714639, 0.48780358, -0.0509764, -13.673481, 5.702409, 0)
-
-[node name="Ball" parent="." unique_id=1495388000 instance=ExtResource("3_okq71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, -2)
-
-[node name="Floor" parent="." unique_id=806685981 instance=ExtResource("2_okq71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
-
-[node name="Floor" parent="Floor" unique_id=803388053 instance=ExtResource("2_okq71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41)
-
-[node name="Floor2" parent="Floor" unique_id=272438321 instance=ExtResource("2_okq71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -82)
-
-[node name="Floor" parent="Floor/Floor2" unique_id=516056265 instance=ExtResource("2_okq71")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41)
-
-[node name="Box" parent="." unique_id=1666721492 instance=ExtResource("4_wosnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3999996, 2.1, 0.5)
-
-[node name="Box2" parent="." unique_id=772386513 instance=ExtResource("4_wosnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 4)
-
-[node name="Box3" parent="." unique_id=2091934498 instance=ExtResource("4_wosnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2, 12)
-
-[node name="Trampoline" parent="." unique_id=410271817 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, -1, 1.5999999, -2)
-constant_linear_velocity = Vector3(5, 5, 5)
-
-[node name="Trampoline3" parent="." unique_id=903456787 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
-transform = Transform3D(3.7, 0, 0, 0, 1, 0, 0, 0, 1, -17, 1.2, -9)
-
-[node name="Trampoline2" parent="." unique_id=1427212074 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.6, -2)
-
-[node name="Trampoline4" parent="." unique_id=521314201 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 1.2, -9)
-
-[node name="Trampoline5" parent="." unique_id=457947343 groups=["Bouncy"] instance=ExtResource("6_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 1.2, -9)
-
-[node name="M2" parent="." unique_id=1967461708 groups=["Grabable"] instance=ExtResource("6_a8auw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0400107, 1.8848104, 13.047836)
-
-[node name="Bloblin" parent="." unique_id=1744837047 instance=ExtResource("7_ifh66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 3)
-
-[node name="Tower2" parent="." unique_id=1558360361 instance=ExtResource("8_aeo3b")]
-transform = Transform3D(0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.25881907, 6, 2, -25)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.509964, 2.095827, 8.613398)
 
 [node name="Button Console" parent="." unique_id=2109354994 instance=ExtResource("9_worak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 19.699999, 9)
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=657070212]
+[node name="SubViewport" type="SubViewport" parent="Button Console" unique_id=657070212]
 scaling_3d_scale = 1.17
 size = Vector2i(48, 48)
 script = ExtResource("10_ahc04")
 
-[node name="Rain" type="TextureRect" parent="SubViewport" unique_id=640041944]
+[node name="Rain" type="TextureRect" parent="Button Console/SubViewport" unique_id=640041944]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_1vwyg")
 
-[node name="Snow" type="TextureRect" parent="SubViewport" unique_id=80594812]
+[node name="Snow" type="TextureRect" parent="Button Console/SubViewport" unique_id=80594812]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("11_ahc04")
 
-[node name="Clear" type="TextureRect" parent="SubViewport" unique_id=1804877290]
+[node name="Clear" type="TextureRect" parent="Button Console/SubViewport" unique_id=1804877290]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("12_8cye3")
 
-[node name="Storm" type="TextureRect" parent="SubViewport" unique_id=91007078]
+[node name="Storm" type="TextureRect" parent="Button Console/SubViewport" unique_id=91007078]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("13_062e5")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1228475274]
-transform = Transform3D(-4.0717157e-07, 0, 9.315, 0, 9.315, 0, -9.315, 0, -4.0717157e-07, -2, 4.9, 8)
+[node name="Sprite3D" type="Sprite3D" parent="Button Console/SubViewport" unique_id=1228475274]
+transform = Transform3D(-4.0717157e-07, 0, 9.315, 0, 9.315, 0, -9.315, 0, -4.0717157e-07, -9, 23.599998, 9)
 texture = SubResource("ViewportTexture_1vwyg")
 
 [node name="Potion2" parent="." unique_id=2090038305 instance=ExtResource("15_8cye3")]
 transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 5.053, 2, 12.466274)
+
+[node name="Ground" parent="." unique_id=2133131783 instance=ExtResource("16_062e5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 1, 9)
+
+[node name="cauldron" parent="." unique_id=901306084 instance=ExtResource("11_cb6ip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 20.1, 8)
+
+[node name="Timer" type="Timer" parent="." unique_id=1459039045]
+wait_time = 200.0
+autostart = true
+script = ExtResource("12_vudi7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1565657510]
+transform = Transform3D(0.25881892, 0.48296347, 0.83651596, -1.1293185e-08, 0.86602527, -0.5000003, -0.9659259, 0.12940976, 0.22414368, 0, 0, -6)
+light_energy = 0.5
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." unique_id=1781147130]
+transform = Transform3D(0.2588191, -0.48296288, -0.8365162, -3.3106016e-15, -0.8660255, 0.49999997, -0.9659258, -0.12940954, -0.2241439, 0, 0, -6)
+light_energy = 0.42
+
+[node name="Path3D" type="Path3D" parent="." unique_id=459199273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, 7.1)
+curve = SubResource("Curve3D_vudi7")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=559055560]
+transform = Transform3D(0.97439116, 0, 0.2248585, 0, 1.0000262, 0, -0.22485965, 0, 0.9743861, 44.9, 0, 28.300001)
+rotation_mode = 4
+
+[node name="Customer" parent="Path3D/PathFollow3D" unique_id=1624108045 instance=ExtResource("12_1vwyg")]
+transform = Transform3D(-2.9802322e-08, 0, -1.0000001, 0, 1.0000001, 0, 1.0000001, 0, -2.9802322e-08, 0, 0, 0)

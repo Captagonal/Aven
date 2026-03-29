@@ -104,7 +104,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_o5qcw")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4l8vr"]
+albedo_color = Color(1.1346864, 0.7166653, 1.4543496, 0.54509807)
+metallic_specular = 1.0
+roughness = 0.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_4l8vr"]
+material = SubResource("StandardMaterial3D_4l8vr")
 size = Vector3(0.335, 0.32, 0.185)
 
 [sub_resource type="Gradient" id="Gradient_nymo1"]

@@ -50,7 +50,7 @@ public partial class Player : CharacterBody3D
 		{
 			Vector2 input = Input.GetVector("move_left", "move_right", "move_forward", "move_back");
 			Vector3 direction = (_head.GlobalTransform.Basis * new Vector3(input.X, 0, input.Y)).Normalized();
-
+			
 			if (direction != Vector3.Zero)
 			{
 				_targetVelocity.X = direction.X * Speed;

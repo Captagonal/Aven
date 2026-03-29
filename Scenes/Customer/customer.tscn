@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://clx6p6iqf4tbx"]
+
+[ext_resource type="PackedScene" uid="uid://d3uw5lckqucot" path="res://Scenes/bloblin.tscn" id="1_b53n7"]
+[ext_resource type="Script" uid="uid://0yi5jvxwivj8" path="res://Scenes/Customer/Customer.cs" id="1_qtepw"]
+[ext_resource type="Texture2D" uid="uid://dm57dhx4retkw" path="res://Assets/Textures/speech-thought-comic-dialog-box-bubble-701751694701878hjqb6ry2zg.png" id="2_qtepw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrqdc"]
+radius = 0.7
+height = 1.7
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_yq8ln"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_xnbkp"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 11
+shadow_size = 8
+shadow_color = Color(0.11290968, 0.18779862, 0.25576857, 0.9019608)
+
+[node name="Customer" type="CharacterBody3D" unique_id=524992098]
+script = ExtResource("1_qtepw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=813009867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("CapsuleShape3D_yrqdc")
+
+[node name="Bloblin" parent="." unique_id=1744837047 instance=ExtResource("1_b53n7")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1420987483]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.2, 1.5, 1.5)
+texture = SubResource("ViewportTexture_yq8ln")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=1231294614]
+transparent_bg = true
+size = Vector2i(280, 150)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=1312720150]
+offset_right = 250.0
+offset_bottom = 200.0
+texture = ExtResource("2_qtepw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" unique_id=426917265]
+offset_left = 17.695
+offset_top = 28.71
+offset_right = 163.445
+offset_bottom = 159.055
+scale = Vector2(1.425, 1.425)
+text = "Hello I am Bloblin, Please I need sOund"
+label_settings = SubResource("LabelSettings_xnbkp")
+autowrap_mode = 2
+uppercase = true

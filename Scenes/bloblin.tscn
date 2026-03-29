@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://d3uw5lckqucot"]
 
-[ext_resource type="Texture2D" uid="uid://pqovjcigcnl6" path="res://Assets/Bloblin_Sphere Base Color.png" id="1_cm5cs"]
-[ext_resource type="Texture2D" uid="uid://cfi3fcd3w7035" path="res://Assets/Bloblin_Body.png" id="2_faohj"]
+[ext_resource type="Texture2D" uid="uid://pqovjcigcnl6" path="res://Assets/Textures/Bloblin_Sphere Base Color.png" id="1_cm5cs"]
+[ext_resource type="Texture2D" uid="uid://cfi3fcd3w7035" path="res://Assets/Textures/Bloblin_Body.png" id="2_faohj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkmkh"]
 resource_name = "Material.001"

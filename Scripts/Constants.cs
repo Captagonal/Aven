@@ -9,5 +9,13 @@ public static class Constants
         Clear,
         Storm
     }
+    public enum TimeOfDaySelection
+    {
+        Morning,
+        Afternoon,
+        Evening,
+        Night
+    }
 
+    public static TimeOfDaySelection currentTime = TimeOfDaySelection.Morning;
 }
