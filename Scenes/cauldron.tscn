@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c4kimejsqhap"]
+
+[ext_resource type="Script" uid="uid://cgruqh2l0lq1" path="res://Scripts/Cauldron.cs" id="1_2rulr"]
+[ext_resource type="PackedScene" uid="uid://d2y38u8vwwd0m" path="res://Assets/cauldron.blend" id="1_2xink"]
+
+[node name="Cauldron" type="Node3D" unique_id=1232999282]
+script = ExtResource("1_2rulr")
+
+[node name="cauldron" parent="." unique_id=657792386 instance=ExtResource("1_2xink")]
+
+[node name="Cube" parent="cauldron" index="2" unique_id=1136977160 groups=["Button"]]
+
+[node name="StaticBody3D" parent="cauldron/Cube" index="0" unique_id=825937001 groups=["Button"]]
+
+[editable path="cauldron"]

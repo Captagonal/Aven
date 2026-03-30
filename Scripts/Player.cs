@@ -120,14 +120,29 @@ public partial class Player : CharacterBody3D
 			}
 			if (lookingAtNode.IsInGroup("Button") && Input.IsActionJustPressed("interact"))
 			{
-				ButtonConsole console = lookingAtNode.GetParent().GetParent() as ButtonConsole;
-				console.PressButton(lookingAtNode.GetParent().Name);
+				
+				if (lookingAtNode.GetParent().GetParent() is ButtonConsole console)
+				{
+					console.PressButton(lookingAtNode.GetParent().Name);
+				}
+				if (lookingAtNode.GetParent().GetParent().GetParent() is Cauldron console2)
+				{
+					console2.pushButton(lookingAtNode);
+				}
 			}
 			
 		}
 		///-----Grabbing Objects-----
 		
-
+		
+			// Potion potion = GD.Load<PackedScene>("res://Scenes/Potion.tscn").Instantiate<Potion>();
+			
+			// GetParent().AddChild(potion);
+			// 	potion.GlobalPosition = _camera.GlobalPosition + _camera.GlobalTransform.Basis.Z * -2;
+			// 	potion.ChangeColour(Colors.Green);
+			// 	potion.Scale = new Vector3(0.38f, 0.38f, 0.38f);
+		
+		
 
 		if (pickedUpObject != null)
 		{
