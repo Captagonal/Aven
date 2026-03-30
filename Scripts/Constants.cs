@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 public static class Constants
@@ -17,5 +18,16 @@ public static class Constants
         Night
     }
 
+    public enum CustomerTypes{
+        Bloblin,
+        Farmer
+    }
+
+    public static List<WeatherSelection> WeatherWants = new List<WeatherSelection>();
+
     public static TimeOfDaySelection currentTime = TimeOfDaySelection.Morning;
+
+    public static int health = 4;
+
+    public static int gpd = 12; //Guys Per Day
 }

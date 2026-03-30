@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://di1hfgqipviik"]
+
+[ext_resource type="PackedScene" uid="uid://clx6p6iqf4tbx" path="res://Scenes/Customer/customer.tscn" id="1_hxnvb"]
+[ext_resource type="Script" uid="uid://b8q057cfqattl" path="res://Scenes/Customer/EvilCustomer.cs" id="2_5u8g7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5u8g7"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="EvilCustomer" unique_id=524992098 instance=ExtResource("1_hxnvb")]
+script = ExtResource("2_5u8g7")
+
+[node name="Sprite3D" parent="." index="2" unique_id=1420987483]
+texture = SubResource("ViewportTexture_5u8g7")
+
+[node name="Label" parent="Sprite3D/SubViewport" parent_id_path=PackedInt32Array(1231294614) index="1" unique_id=426917265]
+text = "I am evil >:3"

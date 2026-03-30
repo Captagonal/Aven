@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://bjr5qtlonsyht" path="res://Scripts/Weather.cs" id="10_ahc04"]
 [ext_resource type="Texture2D" uid="uid://4ds3ir1w7x4d" path="res://Assets/Textures/snow.svg" id="11_ahc04"]
 [ext_resource type="PackedScene" uid="uid://d2y38u8vwwd0m" path="res://Assets/cauldron.blend" id="11_cb6ip"]
-[ext_resource type="PackedScene" uid="uid://clx6p6iqf4tbx" path="res://Scenes/Customer/customer.tscn" id="12_1vwyg"]
 [ext_resource type="Texture2D" uid="uid://k7dj265maw53" path="res://Assets/Textures/clear.svg" id="12_8cye3"]
 [ext_resource type="Script" uid="uid://chwwjj4i8aha4" path="res://Scripts/Timed.cs" id="12_vudi7"]
 [ext_resource type="Texture2D" uid="uid://cgqgp7tfx0wwu" path="res://Assets/Textures/thunder.svg" id="13_062e5"]
@@ -112,10 +111,3 @@ light_energy = 0.42
 [node name="Path3D" type="Path3D" parent="." unique_id=459199273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.5, 7.1)
 curve = SubResource("Curve3D_vudi7")
-
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=559055560]
-transform = Transform3D(0.97439116, 0, 0.2248585, 0, 1.0000262, 0, -0.22485965, 0, 0.9743861, 44.9, 0, 28.300001)
-rotation_mode = 4
-
-[node name="Customer" parent="Path3D/PathFollow3D" unique_id=1624108045 instance=ExtResource("12_1vwyg")]
-transform = Transform3D(-2.9802322e-08, 0, -1.0000001, 0, 1.0000001, 0, 1.0000001, 0, -2.9802322e-08, 0, 0, 0)
