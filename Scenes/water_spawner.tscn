@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d25fe447nywfp"]
+
+[ext_resource type="Script" uid="uid://5voy6anmq08r" path="res://Scripts/WaterSpawner.cs" id="1_2uo3g"]
+[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="2_2uo3g"]
+
+[node name="Water Spawner" type="Node3D" unique_id=1568975812]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_2uo3g")
+
+[node name="Water" parent="." unique_id=165793770 instance=ExtResource("2_2uo3g")]
+gravity_scale = 3.0
+metadata/Price = 1
+
+[editable path="Water"]

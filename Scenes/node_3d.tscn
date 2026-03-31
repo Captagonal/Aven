@@ -6,10 +6,14 @@
 [ext_resource type="Script" uid="uid://bjr5qtlonsyht" path="res://Scripts/Weather.cs" id="10_ahc04"]
 [ext_resource type="Texture2D" uid="uid://4ds3ir1w7x4d" path="res://Assets/Textures/snow.svg" id="11_ahc04"]
 [ext_resource type="PackedScene" uid="uid://c4kimejsqhap" path="res://Scenes/cauldron.tscn" id="11_cb6ip"]
+[ext_resource type="PackedScene" uid="uid://dy0te8nx3nnv0" path="res://Assets/Shelf.blend" id="12_1vwyg"]
 [ext_resource type="Texture2D" uid="uid://k7dj265maw53" path="res://Assets/Textures/clear.svg" id="12_8cye3"]
 [ext_resource type="Script" uid="uid://chwwjj4i8aha4" path="res://Scripts/Timed.cs" id="12_vudi7"]
 [ext_resource type="Texture2D" uid="uid://cgqgp7tfx0wwu" path="res://Assets/Textures/thunder.svg" id="13_062e5"]
+[ext_resource type="PackedScene" uid="uid://cba8mfawn0b10" path="res://Assets/Books.blend" id="13_ahc04"]
+[ext_resource type="PackedScene" uid="uid://52xfqak11fgj" path="res://Scenes/Physics Objects/eye_spawner.tscn" id="14_ahc04"]
 [ext_resource type="PackedScene" uid="uid://frcwqnv506vn" path="res://Scenes/potion.tscn" id="15_8cye3"]
+[ext_resource type="PackedScene" uid="uid://d25fe447nywfp" path="res://Scenes/water_spawner.tscn" id="15_062e5"]
 [ext_resource type="PackedScene" uid="uid://ciheroai2j7ft" path="res://Assets/Ground.blend" id="16_062e5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cb6ip"]
@@ -111,3 +115,26 @@ curve = SubResource("Curve3D_vudi7")
 
 [node name="Cauldron" parent="." unique_id=1232999282 instance=ExtResource("11_cb6ip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 20, 9)
+
+[node name="Shelf" parent="." unique_id=167063532 instance=ExtResource("12_1vwyg")]
+transform = Transform3D(0, 0, -0.59999996, 0, 0.59999996, 0, 0.59999996, 0, 0, 6, 15, 1.4)
+
+[node name="Shelf2" parent="." unique_id=1358909984 instance=ExtResource("12_1vwyg")]
+transform = Transform3D(-0.5795555, 0, 0.15529148, 0, 0.6, 0, -0.15529148, 0, -0.5795555, 10.9, 13, 13)
+
+[node name="Books" parent="." unique_id=1840239062 instance=ExtResource("13_ahc04")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 19.7, -6.2999997)
+
+[node name="EyeSpawner" parent="." unique_id=1687457775 instance=ExtResource("14_ahc04")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 16.1, 0.6999997)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=373019568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 17.300001, 1.7999996)
+omni_range = 15.2
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1634269912]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8000002, 10.400001, 9.199999)
+omni_range = 13.0
+
+[node name="Water Spawner" parent="." unique_id=1568975812 instance=ExtResource("15_062e5")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.900001, 14, 12)

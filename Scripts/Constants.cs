@@ -30,4 +30,6 @@ public static class Constants
     public static int health = 4;
 
     public static int gpd = 12; //Guys Per Day
+
+    public static int coins = 5;
 }

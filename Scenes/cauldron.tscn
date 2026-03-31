@@ -3,13 +3,24 @@
 [ext_resource type="Script" uid="uid://cgruqh2l0lq1" path="res://Scripts/Cauldron.cs" id="1_2rulr"]
 [ext_resource type="PackedScene" uid="uid://d2y38u8vwwd0m" path="res://Assets/cauldron.blend" id="1_2xink"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2rulr"]
+height = 2.2125
+radius = 1.0
+
 [node name="Cauldron" type="Node3D" unique_id=1232999282]
 script = ExtResource("1_2rulr")
 
-[node name="cauldron" parent="." unique_id=657792386 instance=ExtResource("1_2xink")]
+[node name="cauldron" parent="." unique_id=1770052210 instance=ExtResource("1_2xink")]
 
-[node name="Cube" parent="cauldron" index="2" unique_id=1136977160 groups=["Button"]]
+[node name="Cube" parent="cauldron" index="2" unique_id=2000988121 groups=["Button"]]
 
-[node name="StaticBody3D" parent="cauldron/Cube" index="0" unique_id=825937001 groups=["Button"]]
+[node name="StaticBody3D" parent="cauldron/Cube" index="0" unique_id=387033337 groups=["Button"]]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1298405648]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1382372196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59375, 0)
+shape = SubResource("CylinderShape3D_2rulr")
+debug_color = Color(0.8422873, 0.3703063, 0.26006752, 1)
 
 [editable path="cauldron"]

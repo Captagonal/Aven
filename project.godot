@@ -33,6 +33,7 @@ enabled=PackedStringArray()
 Grabable="Items that one can grab"
 Bouncy=""
 Button=""
+shop=""
 
 [input]
 

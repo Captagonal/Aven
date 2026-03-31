@@ -105,8 +105,41 @@ public partial class Player : CharacterBody3D
 
 		if (_lookingAt.IsColliding()){
 			Node3D lookingAtNode = _lookingAt.GetCollider() as Node3D;
+			
 			if (pickedUpObject == null && lookingAtNode != null && lookingAtNode.IsInGroup("Grabable") && Input.IsActionJustPressed("grab"))
 			{
+				if (lookingAtNode.IsInGroup("shop"))
+				{
+					if ((int)lookingAtNode.GetMeta("Price") > Constants.coins)
+					{
+						GD.Print("Not Enough Coins");
+						return;
+					}
+					else
+					{
+						Constants.coins -= (int)lookingAtNode.GetMeta("Price");
+						lookingAtNode.RemoveFromGroup("shop");
+						if (lookingAtNode.Name.ToString().Contains("Eye"))
+						{
+							lookingAtNode.GetParent<EyeSpawner>().SpawnEye();
+						}
+						else if (lookingAtNode.Name.ToString().Contains("Slime"))
+						{
+							// lookingAtNode.GetParent<SlimeSpawner>().SpawnSlime();
+						}
+						else if (lookingAtNode.Name.ToString().Contains("Flower"))
+						{
+							// lookingAtNode.GetParent<FlowerSpawner>().SpawnFlower();
+						}
+						else if (lookingAtNode.Name.ToString().Contains("Water"))
+						{
+							lookingAtNode.GetParent<WaterSpawner>().SpawnWat();
+						}
+
+						
+						GD.Print("Bought Item for " + lookingAtNode.GetMeta("Price") + " coins, " + Constants.coins + " coins remaining");
+					}
+				}
 				Generic6DofJoint3D joint = _camera.GetNode<Node3D>("Holding").GetNode<Generic6DofJoint3D>("joint");
 					lookingAtNode.GlobalPosition = _camera.GetNode<Node3D>("Holding").GlobalPosition;
 					joint.NodeB = lookingAtNode.GetPath();
@@ -118,7 +151,7 @@ public partial class Player : CharacterBody3D
 					};
 					rigidBody.AddCollisionExceptionWith(this);
 			}
-			if (lookingAtNode.IsInGroup("Button") && Input.IsActionJustPressed("interact"))
+			if (lookingAtNode!= null && lookingAtNode.IsInGroup("Button") && Input.IsActionJustPressed("interact"))
 			{
 				
 				if (lookingAtNode.GetParent().GetParent() is ButtonConsole console)
@@ -175,6 +208,11 @@ public partial class Player : CharacterBody3D
 				};
 			}
 		}
+	}
+
+	public void emptyHand(){
+		_camera.GetNode<Node3D>("Holding").GetNode<Generic6DofJoint3D>("joint").NodeB = null;
+		pickedUpObject = null;
 	}
 
 	public override void _Input(InputEvent @event)
