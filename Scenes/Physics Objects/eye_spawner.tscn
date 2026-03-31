@@ -3,8 +3,37 @@
 [ext_resource type="Script" uid="uid://cswx6ndwxcvfr" path="res://Scenes/Physics Objects/EyeSpawner.cs" id="1_lca70"]
 [ext_resource type="PackedScene" uid="uid://phpt3cnjtam5" path="res://Scenes/Physics Objects/Ball.tscn" id="1_rhkmg"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_lca70"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_kf4xy"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0.118720435, 0.20792297, 0.08453039, 0.9019608)
+
 [node name="EyeSpawner" type="Node3D" unique_id=1687457775]
 script = ExtResource("1_lca70")
 
 [node name="Eye" parent="." unique_id=1495388000 groups=["shop"] instance=ExtResource("1_rhkmg")]
 metadata/Price = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1827035010]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0999999, 0.5, 0)
+texture = SubResource("ViewportTexture_lca70")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=8938389]
+transparent_bg = true
+size = Vector2i(161, 118)
+
+[node name="Label2" type="Label" parent="Sprite3D/SubViewport" unique_id=298348656]
+offset_left = 17.695
+offset_top = 28.71
+offset_right = 163.445
+offset_bottom = 159.055
+scale = Vector2(1.425, 1.425)
+text = "1 Gold"
+label_settings = SubResource("LabelSettings_kf4xy")
+autowrap_mode = 2
+uppercase = true
