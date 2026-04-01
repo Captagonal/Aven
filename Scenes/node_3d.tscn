@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cgqgp7tfx0wwu" path="res://Assets/Textures/thunder.svg" id="13_062e5"]
 [ext_resource type="PackedScene" uid="uid://cba8mfawn0b10" path="res://Assets/Books.blend" id="13_ahc04"]
 [ext_resource type="PackedScene" uid="uid://52xfqak11fgj" path="res://Scenes/Physics Objects/eye_spawner.tscn" id="14_ahc04"]
-[ext_resource type="PackedScene" uid="uid://frcwqnv506vn" path="res://Scenes/potion.tscn" id="15_8cye3"]
 [ext_resource type="PackedScene" uid="uid://d25fe447nywfp" path="res://Scenes/water_spawner.tscn" id="15_062e5"]
 [ext_resource type="PackedScene" uid="uid://ciheroai2j7ft" path="res://Assets/Ground.blend" id="16_062e5"]
 
@@ -45,6 +44,20 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cye3"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0.3457569, 0.052957796, 0.020515973, 0.9019608)
+
+[sub_resource type="LabelSettings" id="LabelSettings_062e5"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0.7611122, 0.64995646, 0, 1)
 
 [node name="Node3D" type="Node3D" unique_id=58197472]
 
@@ -90,9 +103,6 @@ texture = ExtResource("13_062e5")
 transform = Transform3D(-4.0717157e-07, 0, 9.315, 0, 9.315, 0, -9.315, 0, -4.0717157e-07, -9, 23.599998, 9)
 texture = SubResource("ViewportTexture_1vwyg")
 
-[node name="Potion2" parent="." unique_id=2090038305 instance=ExtResource("15_8cye3")]
-transform = Transform3D(0.38, 0, 0, 0, 0.38, 0, 0, 0, 0.38, 5.053, 2, 12.466274)
-
 [node name="Ground" parent="." unique_id=2133131783 instance=ExtResource("16_062e5")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 1, 9)
 
@@ -137,4 +147,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8000002, 10.400001, 9.19999
 omni_range = 13.0
 
 [node name="Water Spawner" parent="." unique_id=1568975812 instance=ExtResource("15_062e5")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.900001, 14, 12)
+transform = Transform3D(-0.12940954, 0, -0.48296297, 0, 0.5, 0, 0.48296297, 0, -0.12940954, 12, 14, 12)
+
+[node name="Control" type="Control" parent="." unique_id=2084111665]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Health" type="Label" parent="Control" unique_id=296969638]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.999998
+offset_right = 457.01755
+offset_bottom = 41.589478
+scale = Vector2(1.425, 1.425)
+text = "Health: <3 <3 <3 <3 <3"
+label_settings = SubResource("LabelSettings_8cye3")
+autowrap_mode = 2
+uppercase = true
+
+[node name="Coins" type="Label" parent="Control" unique_id=490002541]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 52.0
+offset_right = 154.77542
+offset_bottom = 86.58948
+scale = Vector2(1.425, 1.425)
+text = "Coins: 20"
+label_settings = SubResource("LabelSettings_062e5")
+autowrap_mode = 2
+uppercase = true

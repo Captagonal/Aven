@@ -30,6 +30,7 @@ public partial class Player : CharacterBody3D
 
 		//-----Set Mouse Mode-----
 		Input.MouseMode = Input.MouseModeEnum.Captured;
+	
 
 	}
 
@@ -117,7 +118,8 @@ public partial class Player : CharacterBody3D
 					}
 					else
 					{
-						Constants.coins -= (int)lookingAtNode.GetMeta("Price");
+						Constants.SpendCoin((int)lookingAtNode.GetMeta("Price"), this);
+						// Constants.coins -= (int)lookingAtNode.GetMeta("Price");
 						lookingAtNode.RemoveFromGroup("shop");
 						if (lookingAtNode.Name.ToString().Contains("Eye"))
 						{

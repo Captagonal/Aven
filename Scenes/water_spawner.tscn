@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://d25fe447nywfp"]
 
 [ext_resource type="Script" uid="uid://5voy6anmq08r" path="res://Scripts/WaterSpawner.cs" id="1_2uo3g"]
-[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="2_2uo3g"]
+[ext_resource type="PackedScene" uid="uid://wa7sdp8uq814" path="res://Scenes/water.tscn" id="2_2uo3g"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2uo3g"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlk7h"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0.118720435, 0.20792297, 0.08453039, 0.9019608)
 
 [node name="Water Spawner" type="Node3D" unique_id=1568975812]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -10,5 +20,24 @@ script = ExtResource("1_2uo3g")
 [node name="Water" parent="." unique_id=165793770 instance=ExtResource("2_2uo3g")]
 gravity_scale = 3.0
 metadata/Price = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1995566865]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.9, 0.7, 0)
+texture = SubResource("ViewportTexture_2uo3g")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=966108897]
+transparent_bg = true
+size = Vector2i(161, 118)
+
+[node name="Label2" type="Label" parent="Sprite3D/SubViewport" unique_id=1326346827]
+offset_left = 17.695
+offset_top = 28.71
+offset_right = 163.445
+offset_bottom = 159.055
+scale = Vector2(1.425, 1.425)
+text = "FREE!"
+label_settings = SubResource("LabelSettings_rlk7h")
+autowrap_mode = 2
+uppercase = true
 
 [editable path="Water"]
