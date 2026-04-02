@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrqdc"]
 radius = 0.7
-height = 2.625
+height = 1.7125
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_yq8ln"]
 viewport_path = NodePath("Sprite3D/SubViewport")
@@ -16,7 +16,7 @@ line_spacing = 3.03
 paragraph_spacing = 0.115
 font_size = 11
 shadow_size = 8
-shadow_color = Color(0.11290968, 0.18779862, 0.25576857, 0.9019608)
+shadow_color = Color(0.250447, 0.096797936, 0.32540783, 0.9019608)
 
 [node name="Customer" type="CharacterBody3D" unique_id=524992098]
 script = ExtResource("1_qtepw")

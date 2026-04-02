@@ -17,7 +17,7 @@ public partial class Player : CharacterBody3D
 	public float CameraSensitivity { get; set; } = .006f;
 
 	private Node3D _head, _camera, pickedUpObject;
-	private RayCast3D _lookingAt;
+	private RayCast3D _lookingAt, Ground, Air;
 	private Vector3 _targetVelocity = Vector3.Zero;
 	private float bounceCooldown = 0f;
 	public override void _Ready()
@@ -27,6 +27,9 @@ public partial class Player : CharacterBody3D
 		_camera = _head.GetNode<Node3D>("Camera3D");
 		_lookingAt = _camera.GetNode<RayCast3D>("RayCast3D");
 		pickedUpObject = null;
+
+		Ground = _head.GetNode<RayCast3D>("Solid");
+		Air = _head.GetNode<RayCast3D>("Air");
 
 		//-----Set Mouse Mode-----
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -62,6 +65,14 @@ public partial class Player : CharacterBody3D
 				_targetVelocity.X = Mathf.MoveToward(_targetVelocity.X, 0, Speed * 3.5f * (float)delta);
 				_targetVelocity.Z = Mathf.MoveToward(_targetVelocity.Z, 0, Speed * 3.5f * (float)delta);
 			}
+		}
+		GD.Print(Ground.IsColliding() + " " + Air.IsColliding());
+		if (Ground.IsColliding() && !Air.IsColliding())
+		{
+			// player going up stairs
+			Position = new Vector3(Position.X, Position.Y + 0.25f, Position.Z);
+			
+
 		}
 
 		Velocity = _targetVelocity;

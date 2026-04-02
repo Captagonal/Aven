@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cv1b3bo843xkr"]
+
+[ext_resource type="Script" uid="uid://b263wn0kqtu1a" path="res://Scenes/GameOver.cs" id="1_ojehl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i2yjh"]
+font_size = 127
+shadow_size = 29
+shadow_color = Color(0.7333932, 0.38317862, 0.0020430542, 0.61960787)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ojehl"]
+font_size = 101
+shadow_size = 29
+shadow_color = Color(0.7333932, 0.38317862, 0.0020430542, 0.61960787)
+
+[node name="Game Over" type="Node2D" unique_id=328634106]
+script = ExtResource("1_ojehl")
+
+[node name="Label" type="Label" parent="." unique_id=1638205694]
+offset_left = 134.0
+offset_top = 97.0
+offset_right = 1010.0
+offset_bottom = 272.0
+text = "GAME OVER :<"
+label_settings = SubResource("LabelSettings_i2yjh")
+
+[node name="Label2" type="Label" parent="." unique_id=37928665]
+offset_left = 318.0
+offset_top = 307.0
+offset_right = 867.0
+offset_bottom = 445.0
+text = "Play Again?"
+label_settings = SubResource("LabelSettings_ojehl")
+
+[node name="Button" type="Button" parent="." unique_id=1615862834]
+offset_left = 297.0
+offset_top = 298.0
+offset_right = 874.0
+offset_bottom = 478.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

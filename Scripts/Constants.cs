@@ -22,7 +22,8 @@ public static class Constants
 	public enum CustomerTypes{
 		Bloblin,
 		Farmer,
-        Kids
+		Kids,
+		SnowMan
 	}
 
 	public static List<WeatherSelection> WeatherWants = new List<WeatherSelection>();
@@ -46,9 +47,8 @@ public static class Constants
 		}
 		if (health <= 0)
 		{
-			health = 0; // Ensure health doesn't go below 0
-			GD.Print("Game Over! Your health has been depleted.");
-		  
+			health = 0; // Ensure health doesn't go below 
+		  	owner.GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn"); // Change to the Game Over scene
 		}
 	}
 

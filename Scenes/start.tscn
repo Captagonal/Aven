@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d2t1hjmuwwlp7"]
+
+[ext_resource type="PackedScene" uid="uid://ciheroai2j7ft" path="res://Assets/Ground.blend" id="1_3bxa3"]
+[ext_resource type="Script" uid="uid://baekin4fa2pox" path="res://Scenes/Start.cs" id="1_r48yj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bk35t"]
+font_size = 127
+shadow_size = 29
+shadow_color = Color(0.7333932, 0.38317862, 0.0020430542, 0.61960787)
+
+[node name="Start" type="Node3D" unique_id=1698546839]
+script = ExtResource("1_r48yj")
+
+[node name="Control" type="Control" parent="." unique_id=1716611355]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=373089220]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 56.0
+offset_right = 1017.0
+offset_bottom = 407.0
+text = "Welcome to da game"
+label_settings = SubResource("LabelSettings_bk35t")
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=1775974760]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 435.0
+offset_right = 526.0
+offset_bottom = 571.0
+text = "Play"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1328543952]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, 0.08715576, 0, -0.087155744, 0.99619466, -1.4, -4, -3.3)
+
+[node name="Ground" parent="." unique_id=2133131783 instance=ExtResource("1_3bxa3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -6, -5)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

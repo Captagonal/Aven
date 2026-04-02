@@ -15,11 +15,14 @@ public partial class Timed : Timer
 		GD.Load<PackedScene>("res://Scenes/Customer/Bloblin.tscn"),
 		GD.Load<PackedScene>("res://Scenes/Customer/Farmer.tscn"),
 		GD.Load<PackedScene>("res://Scenes/kids.tscn"),
+		GD.Load<PackedScene>("res://Scenes/Customer/snow_man.tscn")
 	};
 	PackedScene[] EvilcustomerScenes = new PackedScene[]
 	{
 		GD.Load<PackedScene>("res://Scenes/Customer/evil_bloblin.tscn"),
-		GD.Load<PackedScene>("res://Scenes/Customer/evil_horse.tscn")
+		GD.Load<PackedScene>("res://Scenes/Customer/evil_horse.tscn"),
+		GD.Load<PackedScene>("res://Scenes/Customer/evil_kids.tscn"),
+			GD.Load<PackedScene>("res://Scenes/Customer/evil_snowman.tscn")
 		
 	};
 	public override void _Ready()
@@ -125,7 +128,7 @@ public partial class Timed : Timer
 							newCustomer = EvilcustomerScenes[0].Instantiate<EvilCustomer>();
 							break;
 						case Constants.WeatherSelection.Clear:
-							GD.Print("Customer wants clear");
+							newCustomer = EvilcustomerScenes[2].Instantiate<EvilCustomer>();
 							break;
 						case Constants.WeatherSelection.Snow:
 							GD.Print("Customer wants snow");

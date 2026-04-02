@@ -38,6 +38,10 @@ public partial class Customer : CharacterBody3D
 						Constants.WeatherWants.Add(Constants.WeatherSelection.Clear);
 						Constants.SpendCoin(-1,GetParent().GetParent());
 						break;
+					case Constants.CustomerTypes.SnowMan:
+						Constants.WeatherWants.Add(Constants.WeatherSelection.Snow);
+						Constants.SpendCoin(-4,GetParent().GetParent());
+						break;
 				}
 			};
 			return;

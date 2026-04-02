@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://yythhcylcogk"]
+
+[ext_resource type="Script" uid="uid://1fgbyht8jel0" path="res://Scenes/Customer/EvilKids.cs" id="1_0eioc"]
+[ext_resource type="PackedScene" uid="uid://vkrimpr5mhix" path="res://Assets/Kids.blend" id="2_g58xc"]
+[ext_resource type="Texture2D" uid="uid://dm57dhx4retkw" path="res://Assets/Textures/speech-thought-comic-dialog-box-bubble-701751694701878hjqb6ry2zg.png" id="3_cdepg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yrqdc"]
+radius = 0.7
+height = 1.7125
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4mpa8"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_4fgpu"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 11
+shadow_size = 8
+shadow_color = Color(0.250447, 0.096797936, 0.32540783, 0.9019608)
+
+[node name="Evil Kids" type="CharacterBody3D" unique_id=524992098]
+script = ExtResource("1_0eioc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=813009867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70625, 0)
+shape = SubResource("CapsuleShape3D_yrqdc")
+
+[node name="Kids" parent="." unique_id=1122244088 instance=ExtResource("2_g58xc")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1740838525]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, 0.6, 3.3000002, 3.3)
+texture = SubResource("ViewportTexture_4mpa8")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=695583003]
+transparent_bg = true
+size = Vector2i(236, 143)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D/SubViewport" unique_id=935172333]
+offset_top = -9.055
+offset_right = 250.0
+offset_bottom = 190.945
+texture = ExtResource("3_cdepg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Sprite3D/SubViewport" unique_id=1222426791]
+offset_left = 19.25
+offset_top = 22.36
+offset_right = 164.75
+offset_bottom = 152.705
+scale = Vector2(1.425, 1.425)
+text = "I am Evil and full of hate  >:D"
+label_settings = SubResource("LabelSettings_4fgpu")
+autowrap_mode = 2
+uppercase = true
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=2131363924]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, -0.4, 1.8000002, 1.3)
+texture = SubResource("ViewportTexture_4mpa8")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D2" unique_id=855685601]
+transparent_bg = true
+size = Vector2i(236, 143)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D2/SubViewport" unique_id=1327950053]
+offset_top = -9.055
+offset_right = 250.0
+offset_bottom = 190.945
+texture = ExtResource("3_cdepg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Sprite3D2/SubViewport" unique_id=1049609061]
+offset_left = 19.25
+offset_top = 22.36
+offset_right = 164.75
+offset_bottom = 152.705
+scale = Vector2(1.425, 1.425)
+text = "Hello I would like clear day >:D"
+label_settings = SubResource("LabelSettings_4fgpu")
+autowrap_mode = 2
+uppercase = true
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=2106902536]
+transform = Transform3D(-3.059797e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.059797e-08, 0.6, 1.8000002, -0.3000002)
+texture = SubResource("ViewportTexture_4mpa8")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D3" unique_id=1596558349]
+transparent_bg = true
+size = Vector2i(236, 143)
+
+[node name="TextureRect" type="TextureRect" parent="Sprite3D3/SubViewport" unique_id=1238117195]
+offset_top = -9.055
+offset_right = 250.0
+offset_bottom = 190.945
+texture = ExtResource("3_cdepg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Sprite3D3/SubViewport" unique_id=735763901]
+offset_left = 19.25
+offset_top = 22.36
+offset_right = 164.75
+offset_bottom = 152.705
+scale = Vector2(1.425, 1.425)
+text = "Hello I would like clear day"
+label_settings = SubResource("LabelSettings_4fgpu")
+autowrap_mode = 2
+uppercase = true
