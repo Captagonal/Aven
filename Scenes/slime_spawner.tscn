@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bf8selbe2vr1x"]
+
+[ext_resource type="PackedScene" uid="uid://cqnk5ffkyyd2j" path="res://Scenes/Physics Objects/Box.tscn" id="2_i6cn3"]
+[ext_resource type="Script" uid="uid://du7roq8c5seyy" path="res://Scripts/SlimeSpawner.cs" id="2_ityl0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lyjc7"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlk7h"]
+line_spacing = 3.03
+paragraph_spacing = 0.115
+font_size = 24
+shadow_size = 8
+shadow_color = Color(0.118720435, 0.20792297, 0.08453039, 0.9019608)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6cn3"]
+transparency = 1
+albedo_color = Color(0.51584375, 1, 0, 0.85)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ityl0"]
+material = SubResource("StandardMaterial3D_i6cn3")
+
+[node name="Slime Spawner" type="Node3D" unique_id=1568975812]
+script = ExtResource("2_ityl0")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1995566865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 0.7, 0)
+texture = SubResource("ViewportTexture_lyjc7")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=966108897]
+transparent_bg = true
+size = Vector2i(161, 118)
+
+[node name="Label2" type="Label" parent="Sprite3D/SubViewport" unique_id=1326346827]
+offset_left = 17.695
+offset_top = 28.71
+offset_right = 163.445
+offset_bottom = 159.055
+scale = Vector2(1.425, 1.425)
+text = "1 Gold"
+label_settings = SubResource("LabelSettings_rlk7h")
+autowrap_mode = 2
+uppercase = true
+
+[node name="Slime" parent="." unique_id=1495388000 groups=["shop"] instance=ExtResource("2_i6cn3")]
+metadata/Price = 1
+
+[node name="MeshInstance3D" parent="Slime" index="1" unique_id=997901358]
+mesh = SubResource("BoxMesh_ityl0")
+
+[editable path="Slime"]

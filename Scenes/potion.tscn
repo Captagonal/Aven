@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://frcwqnv506vn"]
 
 [ext_resource type="Script" uid="uid://btyqyev5e1g7j" path="res://Scripts/Potion.cs" id="1_4l8vr"]
+[ext_resource type="AudioStream" uid="uid://cx1qd2vkocje2" path="res://Assets/Sounds/GlassBreak.mp3" id="2_nymo1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdnmi"]
 resource_name = "Material.001"
@@ -152,3 +153,13 @@ color = Color(0.75, 0.20249999, 0.458, 1)
 color_ramp = SubResource("Gradient_nymo1")
 hue_variation_min = -0.65
 hue_variation_max = 0.9
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1053125428]
+stream = ExtResource("2_nymo1")
+attenuation_model = 3
+volume_db = -6.138
+unit_size = 7.14
+max_db = 3.155
+pitch_scale = 1.49
+max_distance = 438.86
+bus = &"Sound Effects"

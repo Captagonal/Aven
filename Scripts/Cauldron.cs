@@ -49,7 +49,6 @@ public partial class Cauldron : Node3D
 			ingredients.Add(PotionIngredients.slime);
 			node.QueueFree();
 			player.emptyHand();
-
 		}
 		else if (node.Name.ToString().Contains("Flower"))
 		{
@@ -93,10 +92,10 @@ public partial class Cauldron : Node3D
 
 					break;
 				case PotionIngredients.eye:
-					damage += 10;
+					damage += 20;
 					break;
 				case PotionIngredients.slime:
-					knockback += 1;
+					knockback += 5;
 					break;
 				case PotionIngredients.flower:
 					knockback += 2;

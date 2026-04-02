@@ -12,20 +12,20 @@ public partial class WaterSpawner : Node3D
 	public override void _Process(double delta)
 	{
 	}
-	
+
 	public void SpawnWat()
 	{
 		RigidBody3D Water = GD.Load<PackedScene>("res://Scenes/water.tscn").Instantiate<RigidBody3D>();
-		
+
 		AddChild(Water);
 		Water.Name = "Water";
 		Water.AddToGroup("shop");
-		Water.SetMeta("Price", 1);
+		Water.SetMeta("Price", 0);
 		Water.GlobalPosition = GlobalPosition;
 		Water.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = true;
 		Water.GravityScale = 0f;
 
-		
+
 		GetTree().CreateTimer(1).Timeout += () =>
 			{
 				Water.GetNode<CollisionShape3D>("CollisionShape3D").Disabled = false;

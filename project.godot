@@ -15,6 +15,10 @@ run/main_scene="uid://bavjghxoeoq3w"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cdr7ejs441kts"
+
 [dotnet]
 
 project/assembly_name="CyberHeart"
@@ -26,7 +30,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
 [global_group]
 

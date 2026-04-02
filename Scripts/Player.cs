@@ -127,7 +127,7 @@ public partial class Player : CharacterBody3D
 						}
 						else if (lookingAtNode.Name.ToString().Contains("Slime"))
 						{
-							// lookingAtNode.GetParent<SlimeSpawner>().SpawnSlime();
+							lookingAtNode.GetParent<SlimeSpawner>().SpawnSlime();
 						}
 						else if (lookingAtNode.Name.ToString().Contains("Flower"))
 						{

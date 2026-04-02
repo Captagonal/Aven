@@ -14,12 +14,13 @@ public partial class Potion : Node3D
 
 	RigidBody3D body;
 	Vector3 _prev_velocity = Vector3.Zero;
-
+	AudioStreamPlayer3D audio;
 	public int damage = 0;
 	public int knockback = 0;
 	public override void _Ready()
 	{
 		body = GetNode<RigidBody3D>("Cone");
+		audio = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,7 +48,11 @@ public partial class Potion : Node3D
 				body.GetNode<Node3D>("Cone").Visible = false;
 				body.GetNode<Node3D>("Cone_002").Visible = false;
 				cpuParticles3D.Visible = true;
-
+				audio.Play();
+				GetTree().CreateTimer(5).Timeout += () =>
+			{
+				QueueFree();
+			};
 
 			}
 		}

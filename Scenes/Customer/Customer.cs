@@ -28,9 +28,15 @@ public partial class Customer : CharacterBody3D
 				{
 					case Constants.CustomerTypes.Bloblin:
 						Constants.WeatherWants.Add(Constants.WeatherSelection.Storm);
+						Constants.SpendCoin(-5,GetParent().GetParent());
 						break;
 					case Constants.CustomerTypes.Farmer:
 						Constants.WeatherWants.Add(Constants.WeatherSelection.Rain);
+						Constants.SpendCoin(-3,GetParent().GetParent());
+						break;
+					case Constants.CustomerTypes.Kids:
+						Constants.WeatherWants.Add(Constants.WeatherSelection.Clear);
+						Constants.SpendCoin(-1,GetParent().GetParent());
 						break;
 				}
 			};

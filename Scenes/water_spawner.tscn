@@ -19,7 +19,7 @@ script = ExtResource("1_2uo3g")
 
 [node name="Water" parent="." unique_id=165793770 instance=ExtResource("2_2uo3g")]
 gravity_scale = 3.0
-metadata/Price = 1
+metadata/Price = 0
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1995566865]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 1.9, 0.7, 0)

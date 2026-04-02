@@ -13,11 +13,13 @@ public partial class Timed : Timer
 	PackedScene[] customerScenes = new PackedScene[]
 	{
 		GD.Load<PackedScene>("res://Scenes/Customer/Bloblin.tscn"),
-		GD.Load<PackedScene>("res://Scenes/Customer/Farmer.tscn")
+		GD.Load<PackedScene>("res://Scenes/Customer/Farmer.tscn"),
+		GD.Load<PackedScene>("res://Scenes/kids.tscn"),
 	};
 	PackedScene[] EvilcustomerScenes = new PackedScene[]
 	{
-		GD.Load<PackedScene>("res://Scenes/Customer/evil_customer.tscn"),
+		GD.Load<PackedScene>("res://Scenes/Customer/evil_bloblin.tscn"),
+		GD.Load<PackedScene>("res://Scenes/Customer/evil_horse.tscn")
 		
 	};
 	public override void _Ready()
@@ -111,14 +113,34 @@ public partial class Timed : Timer
 				}
 				GD.Print("Weather wants count: " + Constants.WeatherWants.Count);
 				gpd = Constants.WeatherWants.Count;
+				foreach (Constants.WeatherSelection weather in Constants.WeatherWants)
+				{
+					EvilCustomer newCustomer = EvilcustomerScenes[0].Instantiate<EvilCustomer>();
+					switch (weather)
+					{
+						case Constants.WeatherSelection.Rain:
+							newCustomer = EvilcustomerScenes[1].Instantiate<EvilCustomer>();
+							break;
+						case Constants.WeatherSelection.Storm:
+							newCustomer = EvilcustomerScenes[0].Instantiate<EvilCustomer>();
+							break;
+						case Constants.WeatherSelection.Clear:
+							GD.Print("Customer wants clear");
+							break;
+						case Constants.WeatherSelection.Snow:
+							GD.Print("Customer wants snow");
+							break;
+					}
+					newCustomer.Name = "Customer" + Time.GetTicksMsec();
+					newCustomer.Rotation = new Vector3(0, Mathf.DegToRad(-90f), 0);
+					customers.Add(newCustomer);
+				}
 				for (int i = 0; i < gpd; i++)
 				{
 					EvilCustomer newCustomer;
 					// int customerType = (int)(GD.Randi() % Enum.GetValues(typeof(Constants.CustomerTypes)).Length);
 					newCustomer = EvilcustomerScenes[0].Instantiate<EvilCustomer>();
-					newCustomer.Name = "Customer" + i;
-					newCustomer.Rotation = new Vector3(0, Mathf.DegToRad(-90f), 0);
-					customers.Add(newCustomer);
+					
 					GD.Print("Added customer to list: " + customers.LastOrDefault().Name);
 				}
 				Constants.WeatherWants.Clear();

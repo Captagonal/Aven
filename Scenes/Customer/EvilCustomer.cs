@@ -4,6 +4,7 @@ using System;
 public partial class EvilCustomer : CharacterBody3D
 {
 	public int health = 100;
+	public float speed = 1;
 	public PathFollow3D pathFollow;
 	private bool isAtStore = false;
 	private bool waiting = false;
@@ -18,12 +19,12 @@ public partial class EvilCustomer : CharacterBody3D
 	{
 
 		// Move the customer along the path
-		pathFollow.Progress += (float)delta * 3; // Adjust speed as needed
+		pathFollow.Progress += (float)delta * 3*speed; // Adjust speed as needed
 
 		// Check if the customer has reached the store (you can adjust the offset value as needed)
 		if (pathFollow.ProgressRatio >= .47 && pathFollow.ProgressRatio <= .48 && !beenAtStore) // Assuming 1000 is the offset where the store is located
 		{
-			Constants.TakeDamage(1,this); // Reduce player's health by 1 when the customer reaches the store
+			Constants.TakeDamage(1,GetParent().GetParent()); // Reduce player's health by 1 when the customer reaches the store
 			
 			GetParent().QueueFree();
 		}
@@ -31,11 +32,6 @@ public partial class EvilCustomer : CharacterBody3D
 		{
 			GetParent().QueueFree(); // Remove the Evil customer from the scene
 		}
-
-
-
-
-
 	}
 
 	public void TakeDamage(int damage)
