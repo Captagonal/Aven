@@ -32,9 +32,9 @@ text = "Play Again?"
 label_settings = SubResource("LabelSettings_ojehl")
 
 [node name="Button" type="Button" parent="." unique_id=1615862834]
-offset_left = 297.0
-offset_top = 298.0
-offset_right = 874.0
-offset_bottom = 478.0
+offset_left = 304.0
+offset_top = 294.0
+offset_right = 881.0
+offset_bottom = 474.0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

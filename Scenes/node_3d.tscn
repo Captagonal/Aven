@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://52xfqak11fgj" path="res://Scenes/Physics Objects/eye_spawner.tscn" id="14_ahc04"]
 [ext_resource type="PackedScene" uid="uid://bf8selbe2vr1x" path="res://Scenes/slime_spawner.tscn" id="15_8cye3"]
 [ext_resource type="PackedScene" uid="uid://d25fe447nywfp" path="res://Scenes/water_spawner.tscn" id="15_062e5"]
+[ext_resource type="PackedScene" uid="uid://ch2a8ft80h4hc" path="res://Scenes/settings.tscn" id="15_m2rse"]
 [ext_resource type="PackedScene" uid="uid://ciheroai2j7ft" path="res://Assets/Ground.blend" id="16_062e5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cb6ip"]
@@ -166,6 +167,14 @@ omni_range = 13.0
 [node name="Water Spawner" parent="." unique_id=1568975812 instance=ExtResource("15_062e5")]
 transform = Transform3D(-0.12940954, 0, -0.48296297, 0, 0.5, 0, 0.48296297, 0, -0.12940954, 12, 14, 12)
 
+[node name="Settings" parent="." unique_id=956258048 instance=ExtResource("15_m2rse")]
+process_mode = 3
+visible = false
+offset_left = 2.0
+offset_top = 134.0
+offset_right = -181.0
+offset_bottom = -166.0
+
 [node name="Control" type="Control" parent="." unique_id=2084111665]
 layout_mode = 3
 anchors_preset = 0
@@ -198,7 +207,7 @@ label_settings = SubResource("LabelSettings_062e5")
 autowrap_mode = 2
 uppercase = true
 
-[node name="Health2" type="Label" parent="Control" unique_id=1592702250]
+[node name="Days" type="Label" parent="Control" unique_id=1592702250]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 994.0

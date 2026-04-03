@@ -245,7 +245,12 @@ public partial class Player : CharacterBody3D
 		}
 		else if (@event is InputEventKey keyEvent && keyEvent.IsPressed() && keyEvent.Keycode == Key.Escape)
 		{
+			
+			
 			Input.MouseMode = Input.MouseModeEnum.Visible;
+			GetParent().GetNode<Control>("Settings").Visible = true;
+			GetTree().Paused = true;
+			
 		}
 	}
 }

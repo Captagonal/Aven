@@ -56,7 +56,7 @@ public partial class Timed : Timer
 			customers.RemoveAt(0);
 		}
 	}
-
+	private int days = 0;
 	public void _on_timer_timeout()
 	{
 		counter++;
@@ -66,7 +66,9 @@ public partial class Timed : Timer
 		switch (counter)
 		{
 			case 0:
-				GD.Print("CLEAR");
+				GetNode<Label>("%Days").Text = $"Day: {days}";
+				// GD.Print("CLEAR");
+				days++;
 				gpd = Constants.gpd;
 				Constants.currentTime = Constants.TimeOfDaySelection.Morning;
 				proceduralSkyMaterial.SkyTopColor = new Color(0.8f, 0.6f, 0.4f);
@@ -78,7 +80,7 @@ public partial class Timed : Timer
 					newCustomer.Name = "Customer" + i;
 					newCustomer.Rotation = new Vector3(0, Mathf.DegToRad(-90f), 0);
 					customers.Add(newCustomer);
-					GD.Print("Added customer to list: " + customers.LastOrDefault().Name);
+					// GD.Print("Added customer to list: " + customers.LastOrDefault().Name);
 				}
 
 				break;
@@ -91,20 +93,20 @@ public partial class Timed : Timer
 				proceduralSkyMaterial.SkyTopColor = new Color(0.2f, 0.2f, 0.4f);
 				break;
 			case 3:
-				GD.Print("Time of day changed to: night");
+				// GD.Print("Time of day changed to: night");
 				switch (Main.currentWeather)
 				{
 					case Constants.WeatherSelection.Rain:
-						GD.Print("Raining");
+						// GD.Print("Raining");
 						break;
 					case Constants.WeatherSelection.Storm:
-						GD.Print("Storming");
+						// GD.Print("Storming");
 						break;
 					case Constants.WeatherSelection.Clear:
-						GD.Print("Clear");
+						// GD.Print("Clear");
 						break;
 					case Constants.WeatherSelection.Snow:
-						GD.Print("Snowing");
+						// GD.Print("Snowing");
 						break;
 				}
 				for (int i = 0; i < Constants.WeatherWants.Count; i++)

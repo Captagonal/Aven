@@ -4,7 +4,7 @@ using Godot;
 
 public static class Constants
 {
-   public enum WeatherSelection
+	public enum WeatherSelection
 	{
 		Rain,
 		Snow,
@@ -19,7 +19,8 @@ public static class Constants
 		Night
 	}
 
-	public enum CustomerTypes{
+	public enum CustomerTypes
+	{
 		Bloblin,
 		Farmer,
 		Kids,
@@ -35,7 +36,7 @@ public static class Constants
 	public static int gpd = 12; //Guys Per Day
 
 	public static int coins = 20;
-	
+
 	public static void TakeDamage(int damage, Node owner)
 	{
 		health -= damage;
@@ -48,16 +49,18 @@ public static class Constants
 		if (health <= 0)
 		{
 			health = 0; // Ensure health doesn't go below 
-		  	owner.GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn"); // Change to the Game Over scene
+			Input.MouseMode = Input.MouseModeEnum.Visible;
+			owner.GetTree().ChangeSceneToFile("res://Scenes/game_over.tscn"); // Change to the Game Over scene
 		}
 	}
 
-	public static void SpendCoin(int coinsToSpend, Node owner){
+	public static void SpendCoin(int coinsToSpend, Node owner)
+	{
 		if (coins > 0)
 		{
-			coins-= coinsToSpend;
+			coins -= coinsToSpend;
 		}
-		
+
 		owner.GetNode<Label>("%Coins").Text = $"Coins: {coins}"; // Update the coins label in the UI
 	}
 }

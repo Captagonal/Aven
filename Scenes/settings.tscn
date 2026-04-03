@@ -1,5 +1,12 @@
 [gd_scene format=3 uid="uid://ch2a8ft80h4hc"]
 
+[ext_resource type="Script" uid="uid://c77pun06t7wh1" path="res://Scenes/Settings.cs" id="1_4geyq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyi13"]
+font_size = 40
+shadow_size = 11
+shadow_color = Color(0.37342674, 0.39875868, 0.6253981, 0.76500005)
+
 [node name="Settings" type="Control" unique_id=956258048]
 layout_mode = 3
 anchors_preset = 15
@@ -9,35 +16,57 @@ offset_right = -183.0
 offset_bottom = -300.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Label" type="Label" parent="." unique_id=1910828484]
-layout_mode = 0
-offset_left = 111.0
-offset_top = 106.0
-offset_right = 287.0
-offset_bottom = 137.0
-text = "Music Volume"
-
-[node name="HSlider" type="HSlider" parent="Label" unique_id=1234030055]
-layout_mode = 0
-offset_left = 153.0
-offset_top = -26.0
-offset_right = 636.0
-offset_bottom = 52.0
-rounded = true
+script = ExtResource("1_4geyq")
 
 [node name="Label2" type="Label" parent="." unique_id=2064621689]
+custom_minimum_size = Vector2(0, 0.78)
 layout_mode = 0
 offset_left = 100.0
-offset_top = 25.0
+offset_top = 100.0
 offset_right = 276.0
-offset_bottom = 68.0
+offset_bottom = 143.0
 text = "Master Volume"
+label_settings = SubResource("LabelSettings_eyi13")
 
 [node name="HSlider" type="HSlider" parent="Label2" unique_id=1559610781]
 layout_mode = 0
-offset_left = 255.0
-offset_top = -11.0
-offset_right = 738.0
-offset_bottom = 67.0
+offset_left = 309.0
+offset_top = 14.0
+offset_right = 792.0
+offset_bottom = 52.0
+value = 50.0
 rounded = true
+
+[node name="Label2" type="Label" parent="Label2" unique_id=1469854420]
+custom_minimum_size = Vector2(0, 0.78)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 84.0
+offset_right = 298.0
+offset_bottom = 139.0
+text = "Music   Volume"
+label_settings = SubResource("LabelSettings_eyi13")
+
+[node name="HSlider" type="HSlider" parent="Label2/Label2" unique_id=363238485]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 14.0
+offset_right = 792.0
+offset_bottom = 52.0
+value = 50.0
+rounded = true
+
+[node name="Button" type="Button" parent="." unique_id=1341915000]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 318.0
+offset_right = 375.0
+offset_bottom = 435.0
+theme_override_colors/font_color = Color(0.8047423, 0.8047428, 0.80474234, 1)
+theme_override_constants/outline_size = 25
+theme_override_font_sizes/font_size = 79
+text = "Return"
+
+[connection signal="value_changed" from="Label2/HSlider" to="." method="masterVol"]
+[connection signal="value_changed" from="Label2/Label2/HSlider" to="." method="musicVol"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
